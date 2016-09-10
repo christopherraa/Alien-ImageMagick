@@ -7,7 +7,7 @@ use Config;
 
 my $perlbin = $Config{perlpath};
 my $perlversion = $Config{version};
-my $siteprefix = $Config{siteprefix};
+my $siteprefix = $ENV{PERL_LOCAL_LIB_ROOT} // $Config{siteprefix};
 
 my $core_lib =  $Config{archlib}.'/CORE/';
 my $use_threads = $Config{usethreads} ? '' : '--without-threads';
